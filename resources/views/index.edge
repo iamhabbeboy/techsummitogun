@@ -3,8 +3,10 @@
   <head>
     <meta charset="utf-8">
     <title>Welcome to Avatar Customizr :: Tech Summit Ogun</title>
-    {{ css('main.css') }}
 
+    {{ css('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')}}
+
+    {{ css('main.css') }}
     {{ script('html2canvas.min.js')}}
     {{ script('download.js')}}
     {{ script('jquery.js')}}
@@ -51,7 +53,6 @@
            $('.avatar').css('background-color', '#000')
            $(this).text('Dark Theme')
         }
-
        })
     })
     </script>
@@ -59,16 +60,18 @@
   </head>
   <body>
 
+  <div class="col-md-4 col-md-offset-4" >
+
   <div class="main-avatar">
       <div class="logo-handler">
         <img src="./tech-summit1edit.png" alt="techsummit logo">
       </div>
-      <div class="avatar">
+      <div class="avatar" id="img-uploader">
         <img src="/avatar.png" id="img-holder">
       </div>
       <div class="avatar-info">
-      <span  contenteditable>
-        <h2>First Name Last Name</h2>
+      <span  contenteditable id="name-holder">
+        <h2  id="edit-name">Add Name</h2>
       </span>
       <span contenteditable>
         <p>What do you do ? </p>
@@ -78,8 +81,18 @@
   <br>
   <div class="main-avatar">
     <!-- <span class="avatar-layer"> -->
-      <a href="#" class="bg-color save-info">Dark Theme </a> &nbsp; <a href="#" class="save-info" id="exporting">Export</a> &nbsp;
-    <a href="#" id="img-uploader" class="save-info">click to upload </a>
+     <div class="col-md-4">
+       <a href="#" class="bg-color save-info">Dark Theme </a>
+     </div>
+     <div class="col-md-4">
+      <a href="#" class="save-info" id="exporting">Export</a>
+     </div>
+     <div class="col-md-4">
+       <a href="#" id="img-uploader" class="save-info">choose photo </a>
+     </div>
+     <div class="clearfix">
+
+     </div>
   <!--</span>-->
   </div>
 
@@ -89,7 +102,7 @@
     </form>
   </div>
 
-
+</div>
 
   </body>
 </html>

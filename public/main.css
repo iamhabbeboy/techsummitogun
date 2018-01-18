@@ -15,8 +15,8 @@ body {
   max-height: 200px; }
 
 .main-avatar {
-  width: 500px;
-  margin: auto;
+  width: 100%;
+  margin: 20px auto;
   padding: 40px 10px;
   background-color: rgba(255, 255, 255, 0.9);
   border-radius: 10px;
@@ -38,6 +38,7 @@ body {
     height: 200px;
     overflow: hidden;
     border-radius: 50%;
+    cursor: pointer;
     background: #000;
     margin: auto;
     text-align: center; }
@@ -59,7 +60,8 @@ body {
 .save-info {
   text-decoration: none;
   color: rgba(18, 126, 113, 0.88);
-  padding: 5px 30px;
+  padding: 5px 20px;
+  display: block;
   border: 2px solid rgba(18, 126, 113, 0.88);
   border-radius: 5px;
   transition: .3s all;
