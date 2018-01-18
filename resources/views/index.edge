@@ -17,7 +17,7 @@
     }
 
     function exporter() {
-      html2canvas(document.querySelector(".main-avatar")).then(canvas => {
+      html2canvas(document.querySelector(".main-avatar")).then( function(canvas) {
         download(canvas.toDataURL(), "avatar.png", "image/png")
       });
     }
