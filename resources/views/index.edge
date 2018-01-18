@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Welcome to Avatar Customizr :: Tech Summit Ogun</title>
+    {{ css('main.css') }}
+
+    {{ script('html2canvas.min.js')}}
+    {{ script('download.js')}}
+    {{ script('jquery.js')}}
+    <script>
+
+    window.onload = function() {
+      document.querySelector('#exporting').addEventListener('click', exporter, false)
+    }
+
+    function exporter() {
+      html2canvas(document.querySelector(".main-avatar")).then(canvas => {
+        download(canvas.toDataURL(), "avatar.png", "image/png")
+      });
+    }
+
+    $(function(){
+      $('#img-uploader').click(function(e) {
+        // e.preventDefault()
+        //  console.log('Hello world !');
+        $('#file-upload').click()
+      })
+
+      $('#file-upload').change(function() {
+        var reader = new FileReader();
+        reader.onload = function(e) {
+          var preview = document.getElementById('img-holder');
+          preview.src = e.target.result;
+          preview.style.maxWidth = '200px';
+          preview.style.maxHeight = '200px';
+        }
+        reader.readAsDataURL(this.files[0]);
+      })
+
+      var click = 0;
+       $('.bg-color').click(function(e) {
+        if(click == 0 ) {
+           click = 1;
+           $('.main-avatar').css('background-color', '#000')
+           $('.avatar').css('background-color', '#CCC')
+          $(this).text('Light Theme')
+        } else {
+           click = 0;
+           $('.main-avatar').css('background-color', 'rgba(255, 255, 255, 0.9)')
+           $('.avatar').css('background-color', '#000')
+           $(this).text('Dark Theme')
+        }
+
+       })
+    })
+    </script>
+
+  </head>
+  <body>
+
+  <div class="main-avatar">
+      <div class="logo-handler">
+        <img src="./tech-summit1edit.png" alt="techsummit logo">
+      </div>
+      <div class="avatar">
+        <img src="/avatar.png" id="img-holder">
+      </div>
+      <div class="avatar-info">
+      <span  contenteditable>
+        <h2>First Name Last Name</h2>
+      </span>
+      <span contenteditable>
+        <p>What do you do ? </p>
+      </span>
+      </div>
+  </div>
+  <br>
+  <div class="main-avatar">
+    <!-- <span class="avatar-layer"> -->
+      <a href="#" class="bg-color save-info">Dark Theme </a> &nbsp; <a href="#" class="save-info" id="exporting">Export</a> &nbsp;
+    <a href="#" id="img-uploader" class="save-info">click to upload </a>
+  <!--</span>-->
+  </div>
+
+  <div class="">
+    <form class="" enctype="multipart/form-data" method="post">
+      <input type="file" id="file-upload" style="height: 1px;">
+    </form>
+  </div>
+
+
+
+  </body>
+</html>
