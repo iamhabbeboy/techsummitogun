@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Welcome to Avatar Customizr :: Tech Summit Ogun</title>
+     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
 
     {{ css('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')}}
 
@@ -12,21 +13,15 @@
     {{ script('jquery.js')}}
     <script>
 
-    window.onload = function() {
-      document.querySelector('#exporting').addEventListener('click', exporter, false)
-    }
-
-    function exporter() {
-      html2canvas(document.querySelector(".main-avatar")).then( function(canvas) {
-        download(canvas.toDataURL(), "avatar.png", "image/png")
-      });
-    }
-
     $(function(){
-      $('#img-uploader').click(function(e) {
-        // e.preventDefault()
-        //  console.log('Hello world !');
+      $('.img-uploader').click(function(e) {
         $('#file-upload').click()
+      })
+
+      $('#exporting').click(function() {
+        html2canvas(document.querySelector(".main-avatar")).then( function(canvas) {
+          download(canvas.toDataURL(), "avatar.png", "image/png")
+        });
       })
 
       $('#file-upload').change(function() {
@@ -66,7 +61,7 @@
       <div class="logo-handler">
         <img src="./tech-summit1edit.png" alt="techsummit logo">
       </div>
-      <div class="avatar" id="img-uploader">
+      <div class="avatar img-uploader">
         <img src="/avatar.png" id="img-holder">
       </div>
       <div class="avatar-info">
@@ -88,7 +83,7 @@
       <a href="#" class="save-info" id="exporting">Export</a>
      </div>
      <div class="col-md-4">
-       <a href="#" id="img-uploader" class="save-info">choose photo </a>
+       <a href="#" class="save-info img-uploader">choose photo </a>
      </div>
      <div class="clearfix">
 
